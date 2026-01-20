@@ -45,9 +45,13 @@ everything-claude-code/
 |   |-- doc-updater.md       # Documentation sync
 |
 |-- skills/           # Workflow definitions and domain knowledge
-|   |-- coding-standards.md         # Language best practices
-|   |-- backend-patterns.md         # API, database, caching patterns
+|   |-- coding-standards.md         # Language best practices (TypeScript/JavaScript)
+|   |-- backend-patterns.md         # API, database, caching patterns (Node.js)
 |   |-- frontend-patterns.md        # React, Next.js patterns
+|   |-- cpp-system-development.md   # C++ coding standards and system patterns
+|   |-- cpp-system-patterns.md      # C++ network, database, and backend patterns
+|   |-- csharp-system-development.md # C# coding standards and .NET patterns
+|   |-- csharp-system-patterns.md   # C# API design, messaging, and enterprise patterns
 |   |-- project-guidelines-example.md # Example project-specific skill
 |   |-- tdd-workflow/               # TDD methodology
 |   |-- security-review/            # Security checklist
@@ -110,6 +114,12 @@ cp everything-claude-code/commands/*.md ~/.claude/commands/
 
 # Copy skills
 cp -r everything-claude-code/skills/* ~/.claude/skills/
+
+# For C++ or C# development, make sure to include:
+# - cpp-system-development.md
+# - cpp-system-patterns.md
+# - csharp-system-development.md
+# - csharp-system-patterns.md
 ```
 
 ### 2. Add hooks to settings.json
@@ -200,10 +210,11 @@ Please contribute! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ### Ideas for Contributions
 
-- Language-specific skills (Python, Go, Rust patterns)
-- Framework-specific configs (Django, Rails, Laravel)
+- Language-specific skills (Python, Go, Rust patterns) - **C++ and C# system development skills now available!**
+- Framework-specific configs (Django, Rails, Laravel, ASP.NET Core)
 - DevOps agents (Kubernetes, Terraform, AWS)
 - Testing strategies (different frameworks)
+- System programming patterns (embedded systems, operating systems, drivers)
 - Domain-specific knowledge (ML, data engineering, mobile)
 
 ---
