@@ -144,13 +144,20 @@ public async Task<Order> CreateOrder()  // Missing Async suffix
 // ✅ GOOD: Record for data transfer objects
 public record UserDto(int Id, string Name, string Email);
 
-// With validation
-public record CreateOrderRequest(
-    int UserId,
-    List<OrderItem> Items,
-    string ShippingAddress)
+// With validation using init
+public record CreateOrderRequest
 {
-    public CreateOrderRequest : this()
+    public int UserId { get; init; }
+    public List<OrderItem> Items { get; init; } = new();
+    public string ShippingAddress { get; init; } = string.Empty;
+
+    public CreateOrderRequest()
+    {
+        // Default constructor
+    }
+
+    // Validation can be done in a separate method
+    public void Validate()
     {
         if (Items.Count == 0)
             throw new ArgumentException("Items cannot be empty");
