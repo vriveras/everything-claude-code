@@ -78,7 +78,8 @@ struct http_request { };
 // ✅ GOOD: Named constants
 constexpr int kMaxConnections = 100;
 constexpr double kPi = 3.14159265359;
-constexpr std::string_view kDefaultEncoding = "UTF-8";  // Or const std::string for pre-C++17
+constexpr std::string_view kDefaultEncoding = "UTF-8";  // C++17+
+// For pre-C++17: const char* kDefaultEncoding = "UTF-8";
 
 // ✅ GOOD: enum class for type safety
 enum class Status {
