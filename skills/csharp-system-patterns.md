@@ -535,8 +535,8 @@ services.AddHttpClient("api", client =>
 using System.Net;
 using System.Net.Sockets;
 
-// ✅ GOOD: Async TCP server
-public class TcpServer
+// ✅ GOOD: Async TCP server with proper disposal
+public class TcpServer : IDisposable
 {
     private readonly TcpListener _listener;
     private readonly CancellationTokenSource _cts = new();
@@ -579,6 +579,11 @@ public class TcpServer
     {
         _cts.Cancel();
         _listener.Stop();
+    }
+
+    public void Dispose()
+    {
+        _cts?.Dispose();
     }
 }
 ```

@@ -160,7 +160,7 @@ public record CreateOrderRequest
     public void Validate()
     {
         if (Items.Count == 0)
-            throw new ArgumentException("Items cannot be empty");
+            throw new ArgumentException("Items cannot be empty", nameof(Items));
     }
 };
 
