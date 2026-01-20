@@ -250,7 +250,10 @@ public:
 ### Memory-Mapped Files
 
 ```cpp
+// Note: POSIX-specific implementation (Unix/Linux)
+// For Windows, use CreateFileMapping/MapViewOfFile
 #include <sys/mman.h>
+#include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
 
@@ -361,9 +364,12 @@ public:
 ### TCP Server
 
 ```cpp
+// Note: POSIX sockets implementation (Unix/Linux)
+// For Windows, use Winsock2 (ws2_32.lib)
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <unistd.h>
 
 class TcpServer {
 private:

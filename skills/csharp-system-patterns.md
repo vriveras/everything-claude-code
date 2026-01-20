@@ -214,14 +214,16 @@ public async Task<string> DownloadFileAsync(string url, CancellationToken cancel
 }
 
 // Usage with timeout
-using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
-try
+using (var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30)))
 {
-    var result = await DownloadFileAsync(url, cts.Token);
-}
-catch (OperationCanceledException)
-{
-    Console.WriteLine("Download timed out");
+    try
+    {
+        var result = await DownloadFileAsync(url, cts.Token);
+    }
+    catch (OperationCanceledException)
+    {
+        Console.WriteLine("Download timed out");
+    }
 }
 ```
 
